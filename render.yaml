@@ -1,8 +1,6 @@
 services:
   - type: web
-    name: roblox-stealer
-    env: dotnet
+    name: roblox-stealer-docker
+    env: docker
     plan: free
-    buildCommand: dotnet publish -c Release -o out
-    startCommand: dotnet out/RobloxStealer.dll
     autoDeploy: true
