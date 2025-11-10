@@ -1,4 +1,3 @@
-# 멀티스테이지 빌드 (2025 최신 방식)
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["RobloxStealer.csproj", "."]
@@ -13,5 +12,5 @@ RUN dotnet publish "RobloxStealer.csproj" -c Release -o /app/publish /p:UseAppHo
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-EXPOSE 10000  # 내부 포트
+EXPOSE 10000
 ENTRYPOINT ["dotnet", "RobloxStealer.dll"]
